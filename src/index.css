@@ -1,0 +1,134 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-cream: #fff9f5;
+  --color-plum: #9d5185;
+  --color-lavender: #f6e7f2;
+  --color-blush: #f2d5e6;
+  --color-sage: #c8dabf;
+  --color-ink: #4a3548;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Nunito', ui-sans-serif, sans-serif;
+  --shadow-soft: 0 10px 30px rgba(74, 53, 72, 0.08);
+  --shadow-card: 0 8px 24px rgba(157, 81, 133, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(246, 231, 242, 0.9), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 90% 0%, rgba(200, 218, 191, 0.45), transparent 50%),
+    linear-gradient(180deg, #fff9f5 0%, #fdf4ef 40%, #fff9f5 100%);
+  background-attachment: fixed;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes petal-sway {
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.55s ease-out both;
+}
+
+.animate-fade-up-delay {
+  animation: fade-up 0.65s ease-out 0.12s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.7s ease-out 0.22s both;
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 3.2s ease-in-out infinite;
+}
+
+.animate-petal {
+  animation: petal-sway 4s ease-in-out infinite;
+}
+
+.progress-fill {
+  transition: width 0.6s ease;
+}
+
+@keyframes celebrate-pop {
+  0% {
+    filter: brightness(1);
+  }
+  40% {
+    filter: brightness(1.15);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+.celebrate-bar {
+  animation: celebrate-pop 0.7s ease;
+}
+
+@keyframes garden-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.garden-seed,
+.garden-sprout,
+.garden-stem,
+.garden-leaf,
+.garden-bud,
+.garden-bloom {
+  animation: garden-rise 0.55s ease-out both;
+}
+
+.garden-leaf {
+  animation: garden-rise 0.65s ease-out 0.08s both, petal-sway 3.5s ease-in-out 0.7s infinite;
+}
+
